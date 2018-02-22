@@ -83,7 +83,7 @@ public class InstructorEntity {
         this.instructorDetail = instructorDetail;
     }
 
-    @OneToMany(mappedBy="instructor",
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="instructor",
             cascade= {CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH})
     public List<Course> getCourses() {
