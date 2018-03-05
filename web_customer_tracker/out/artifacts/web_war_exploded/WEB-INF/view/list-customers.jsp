@@ -22,6 +22,10 @@
 
 <div id="container">
     <div id="content">
+
+        <%--Add Customer add Button--%>
+        <input type="button" class="add-button"  value="Add Customer"
+               onclick="window.location.href='showFormAdd'; return false;">
         <%--Add customer table here--%>
         <table>
             <tr>

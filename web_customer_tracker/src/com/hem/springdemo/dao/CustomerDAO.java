@@ -11,4 +11,6 @@ import java.util.List;
 public interface CustomerDAO {
 
     public List<Customer> getCustomerList();
+
+    public void saveCustomer(Customer customer);
 }
