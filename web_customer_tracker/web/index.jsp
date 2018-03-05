@@ -1,4 +1,5 @@
 <%-- Created by IntelliJ IDEA. --%>
+<%--
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,4 +10,7 @@
 
 <a href="customer/list">Customer List</a>
 </body>
-</html>
+</html>--%>
+
+
+<%response.sendRedirect("/customer/list");%>
