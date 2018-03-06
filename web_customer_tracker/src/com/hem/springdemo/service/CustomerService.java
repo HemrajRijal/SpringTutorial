@@ -13,4 +13,6 @@ public interface CustomerService {
     public List<Customer> getCustomers();
 
     public void addCustomer(Customer customer);
+
+    public Customer getCustomer(int theId);
 }
