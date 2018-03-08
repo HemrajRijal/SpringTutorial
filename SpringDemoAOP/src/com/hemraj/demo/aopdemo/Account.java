@@ -14,18 +14,22 @@ public class Account {
     }
 
     public String getName() {
+        System.out.println(getClass() + " IN getter--->");
         return name;
     }
 
     public void setName(String name) {
+        System.out.println(getClass() + " IN setter--->");
         this.name = name;
     }
 
     public String getLevel() {
+        System.out.println(getClass() + " IN getter--->");
         return level;
     }
 
     public void setLevel(String level) {
+        System.out.println(getClass() + " IN setter--->");
         this.level = level;
     }
 }
