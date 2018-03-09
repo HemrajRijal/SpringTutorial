@@ -1,18 +1,14 @@
 package com.hemraj.demo.aopdemo.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.springframework.stereotype.Component;
 
 /**
  * Author: hemraj
- * Date:  3/7/18.
+ * Date:  3/9/18.
  */
-//@Aspect
-//@Component
-public class MyDemoLoggingAspect {
-
+@Aspect
+public class AOPExpression {
     //    Make a One point expression and re-use
     @Pointcut("execution(* com.hemraj.demo.aopdemo.dao.*.*( ..))")
     public void forDAOPackage() {
@@ -35,19 +31,5 @@ public class MyDemoLoggingAspect {
     @Pointcut("forDAOPackage() && !(forGetter() || forSetter())")
     public void forDAOPackageNoGetterAndSetter() {
 
-    }
-
-//    This is where we add all of our related advices for logging
-
-    //    Lets start with @Before annotation
-//    @Before("execution(public void add*( ..))")
-    @Before("forDAOPackageNoGetterAndSetter()")
-    public void beforeAddAccountAdvice() {
-        System.out.println("\n ======> EXecuting before Advice on addAccount");
-    }
-
-    @Before("forDAOPackageNoGetterAndSetter()")
-    public void performAPIAnalytics() {
-        System.out.println(" =====> Analysing API");
     }
 }
