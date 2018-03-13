@@ -45,8 +45,13 @@ public class AccountDAO {
         this.serviceCode = serviceCode;
     }
 
-    //    Add new method findAccount
-    public List<Account> findAccount() {
+
+    public List<Account> findAccount(boolean flag) {
+        //    Add new method findAccount... simulate expression
+        if (flag) {
+            throw new RuntimeException("No Soup for you");
+        }
+//        For academic purpose
         List<Account> accounts = new ArrayList<>();
 
 //        create sample accounts
@@ -61,5 +66,4 @@ public class AccountDAO {
 
         return accounts;
     }
-
 }

@@ -9,7 +9,7 @@ import java.util.List;
  * Author: hemraj
  * Date:  3/7/18.
  */
-public class AfterReturningDemo {
+public class AfterThrowingDemo {
     public static void main(String[] args) {
 //        read spring config java file
         AnnotationConfigApplicationContext context =
@@ -20,11 +20,19 @@ public class AfterReturningDemo {
         AccountDAO accountDAO = context.getBean("accountDAO", AccountDAO.class);
 
 //        call the method to find the accounts
-        List<Account> accounts = accountDAO.findAccount(false);
+        List<Account> accounts = null;
+
+        try {
+            //        Add boolean value to simulate expression
+            boolean flag = true;
+            accounts = accountDAO.findAccount(flag);
+        } catch (Exception ex) {
+            System.out.println("Main app caught Exception-->" + ex);
+        }
 
 
 //Display Accounts
-        System.out.println("Main Program: After returning demo App");
+        System.out.println("Main Program: After Throwing demo App");
         System.out.println("---------------------------");
         System.out.println(accounts);
 
