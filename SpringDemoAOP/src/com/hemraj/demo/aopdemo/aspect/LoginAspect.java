@@ -2,6 +2,7 @@ package com.hemraj.demo.aopdemo.aspect;
 
 import com.hemraj.demo.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -17,6 +18,15 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Order(2)
 public class LoginAspect {
+
+    //    Adding After finally Service
+    @After("execution(* com.hemraj.demo.aopdemo.dao.AccountDAO.findAccount(..))")
+    public void AfterFinallyAdvice(JoinPoint theJoinPoint) {
+        //        Display method signature
+        MethodSignature methodSignature = (MethodSignature) theJoinPoint.getSignature();
+        System.out.println("Method--->" + methodSignature);
+        System.out.println("\n ======> Executing After Finally Advice on addAccount");
+    }
 
     //    Adding method for AfterThrowing
     @AfterThrowing(pointcut = "execution(* com.hemraj.demo.aopdemo.dao.AccountDAO.findAccount(..))",
