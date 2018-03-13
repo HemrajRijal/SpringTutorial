@@ -3,6 +3,9 @@ package com.hemraj.demo.aopdemo.dao;
 import com.hemraj.demo.aopdemo.Account;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Author: hemraj
  * Date:  3/7/18.
@@ -40,6 +43,23 @@ public class AccountDAO {
     public void setServiceCode(String serviceCode) {
         System.out.println(getClass() + ": in setServiceCode()");
         this.serviceCode = serviceCode;
+    }
+
+    //    Add new method findAccount
+    public List<Account> findAccount() {
+        List<Account> accounts = new ArrayList<>();
+
+//        create sample accounts
+        Account account1 = new Account("Hemraj", "Platinum");
+        Account account2 = new Account("Ramesh", "Platinum");
+        Account account3 = new Account("Sandip", "Platinum");
+
+//        Add them t0 the account list
+        accounts.add(account1);
+        accounts.add(account2);
+        accounts.add(account3);
+
+        return accounts;
     }
 
 }
