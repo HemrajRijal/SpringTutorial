@@ -2,10 +2,8 @@ package com.hemraj.demo.aopdemo.aspect;
 
 import com.hemraj.demo.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -70,5 +68,30 @@ public class LoginAspect {
                 System.out.println("Account level--->" + theAccount.getLevel());
             }
         }
+    }
+
+
+    //    Adding Around Service demo
+    @Around("execution(* com.hemraj.demo.aopdemo.service.TrafficFortuneService.getFortune(..))")
+    public Object aroundGetFortuneService(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable {
+//        Print out the method we  are advising on
+        MethodSignature methodSignature = (MethodSignature) theProceedingJoinPoint.getSignature();
+        System.out.println("Method--->" + methodSignature);
+        System.out.println("\n ======> Executing After Finally Advice on addAccount");
+
+//        get the begin timestamp
+        long begin = System.currentTimeMillis();
+
+//        now lets execute the method
+        Object result = theProceedingJoinPoint.proceed();
+
+//        get ending timestamp
+        long end = System.currentTimeMillis();
+
+//        compute duration and display it
+        long duration = end - begin;
+        System.out.println("\n=======>Duration:" + duration / 1000.0 + "seconds");
+
+        return result;
     }
 }
