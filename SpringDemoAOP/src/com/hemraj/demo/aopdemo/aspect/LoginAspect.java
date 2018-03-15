@@ -89,7 +89,15 @@ public class LoginAspect {
         long begin = System.currentTimeMillis();
 
 //        now lets execute the method
-        Object result = theProceedingJoinPoint.proceed();
+        Object result = null;
+        try {
+            result = theProceedingJoinPoint.proceed();
+        } catch (Exception ex) {
+//            Log the exception
+            myLogger.warning(ex.getMessage());
+//            Give user a custom message
+            result = "Major Accident But no worries, Your Private AOP Helicopter is on the way";
+        }
 
 //        get ending timestamp
         long end = System.currentTimeMillis();
