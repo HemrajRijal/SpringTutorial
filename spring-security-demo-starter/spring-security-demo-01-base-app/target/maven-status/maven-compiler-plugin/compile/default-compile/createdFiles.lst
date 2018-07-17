@@ -1,3 +1,4 @@
+com/hemraj/security/demo/controller/LoginController.class
 com/hemraj/security/demo/config/MySpringMacDispatcherServletInitializer.class
 com/hemraj/security/demo/controller/DemoController.class
 com/hemraj/security/demo/config/DemoConfig.class

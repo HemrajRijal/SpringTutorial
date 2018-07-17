@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: hemraj
@@ -12,5 +14,9 @@
 </head>
 <body>
 <h2>Hey, You are welcome over here.................</h2>
+
+<form:form method="post" action="${pageContext.request.contextPath}/logout">
+    <input type="submit" value="logout" class="btn btn-danger">
+</form:form>
 </body>
 </html>
